@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var sendMoney = false
+    @State private var addMoney = false
+    
     var body: some View {
         
         NavigationView{
@@ -96,8 +100,17 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        SubTaskViews(borderColor: Color.blue, text: "Send Money", image: "send")
-                        //                        .padding(.trailing, 20)
+                        Button(action: {
+                            
+                            self.sendMoney.toggle()
+                            
+                        }, label: {
+                            SubTaskViews(borderColor: Color.blue, text: "Send Money", image: "send")
+                            //                        .padding(.trailing, 20)
+                        }).sheet(isPresented: $sendMoney, content: {
+                            SendMoney()
+                        })
+                    
                     }.padding(.bottom, 30)
                     
                     HStack{
@@ -110,8 +123,17 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        SubTaskViews(borderColor: Color.blue, text: "Add Money", image: "add")
-                        //                        .padding(.trailing, 20)
+                        Button(action: {
+                            
+                            self.addMoney.toggle()
+                            
+                        }, label: {
+                            SubTaskViews(borderColor: Color.blue, text: "Add Money", image: "add")
+                            //                        .padding(.trailing, 20)
+                        }).sheet(isPresented: $addMoney, content: {
+                            AddMoney()
+                        })
+                        
                     }
                     
                 }.padding(.all, 20)

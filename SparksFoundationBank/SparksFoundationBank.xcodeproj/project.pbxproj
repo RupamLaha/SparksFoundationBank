@@ -16,6 +16,8 @@
 		4151FF6E25B1EDB200B1334D /* TransactionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF6D25B1EDB200B1334D /* TransactionCells.swift */; };
 		4151FF7125B1FD6700B1334D /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7025B1FD6700B1334D /* Customers.swift */; };
 		4151FF7425B1FDB000B1334D /* CustomersCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7325B1FDB000B1334D /* CustomersCells.swift */; };
+		4151FF7825B2133300B1334D /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7725B2133300B1334D /* SendMoney.swift */; };
+		4151FF7B25B21AE600B1334D /* AddMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7A25B21AE600B1334D /* AddMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		4151FF6D25B1EDB200B1334D /* TransactionCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCells.swift; sourceTree = "<group>"; };
 		4151FF7025B1FD6700B1334D /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		4151FF7325B1FDB000B1334D /* CustomersCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersCells.swift; sourceTree = "<group>"; };
+		4151FF7725B2133300B1334D /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
+		4151FF7A25B21AE600B1334D /* AddMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 			children = (
 				4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */,
 				4151FF5825B17B1900B1334D /* ContentView.swift */,
+				4151FF7725B2133300B1334D /* SendMoney.swift */,
+				4151FF7A25B21AE600B1334D /* AddMoney.swift */,
 				4151FF6A25B1E4A200B1334D /* Transactions.swift */,
 				4151FF6D25B1EDB200B1334D /* TransactionCells.swift */,
 				4151FF7025B1FD6700B1334D /* Customers.swift */,
@@ -157,7 +163,9 @@
 				4151FF7125B1FD6700B1334D /* Customers.swift in Sources */,
 				4151FF5725B17B1900B1334D /* SparksFoundationBankApp.swift in Sources */,
 				4151FF6E25B1EDB200B1334D /* TransactionCells.swift in Sources */,
+				4151FF7825B2133300B1334D /* SendMoney.swift in Sources */,
 				4151FF7425B1FDB000B1334D /* CustomersCells.swift in Sources */,
+				4151FF7B25B21AE600B1334D /* AddMoney.swift in Sources */,
 				4151FF6B25B1E4A200B1334D /* Transactions.swift in Sources */,
 				4151FF6725B18FEB00B1334D /* SubTaskViews.swift in Sources */,
 			);
