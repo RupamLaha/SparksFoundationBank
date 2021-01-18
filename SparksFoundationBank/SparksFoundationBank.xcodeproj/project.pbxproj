@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,9 +18,15 @@
 		4151FF7425B1FDB000B1334D /* CustomersCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7325B1FDB000B1334D /* CustomersCells.swift */; };
 		4151FF7825B2133300B1334D /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7725B2133300B1334D /* SendMoney.swift */; };
 		4151FF7B25B21AE600B1334D /* AddMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF7A25B21AE600B1334D /* AddMoney.swift */; };
+		41695D0725B341C200F4AA59 /* customersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41695D0625B341C200F4AA59 /* customersModel.swift */; };
+		41695D0A25B344B300F4AA59 /* DB_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41695D0925B344B300F4AA59 /* DB_Manager.swift */; };
+		418B9B3025B6071A00BAFBF2 /* transactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418B9B2F25B6071900BAFBF2 /* transactionsModel.swift */; };
+		418B9B3425B61CAE00BAFBF2 /* Bank.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 418B9B3325B61CAE00BAFBF2 /* Bank.sqlite3 */; };
+		9798C9D180DEAE60419CC001 /* Pods_SparksFoundationBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3BE6B3FF1DAD29D93BC44C /* Pods_SparksFoundationBank.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F3BE6B3FF1DAD29D93BC44C /* Pods_SparksFoundationBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SparksFoundationBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4151FF5325B17B1900B1334D /* SparksFoundationBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparksFoundationBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparksFoundationBankApp.swift; sourceTree = "<group>"; };
 		4151FF5825B17B1900B1334D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +40,12 @@
 		4151FF7325B1FDB000B1334D /* CustomersCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersCells.swift; sourceTree = "<group>"; };
 		4151FF7725B2133300B1334D /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
 		4151FF7A25B21AE600B1334D /* AddMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoney.swift; sourceTree = "<group>"; };
+		41695D0625B341C200F4AA59 /* customersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customersModel.swift; sourceTree = "<group>"; };
+		41695D0925B344B300F4AA59 /* DB_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_Manager.swift; sourceTree = "<group>"; };
+		418B9B2F25B6071900BAFBF2 /* transactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactionsModel.swift; sourceTree = "<group>"; };
+		418B9B3325B61CAE00BAFBF2 /* Bank.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bank.sqlite3; sourceTree = "<group>"; };
+		5A5D3CCAB518AE32145E700D /* Pods-SparksFoundationBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparksFoundationBank.debug.xcconfig"; path = "Target Support Files/Pods-SparksFoundationBank/Pods-SparksFoundationBank.debug.xcconfig"; sourceTree = "<group>"; };
+		E24585078A099A149C5A1616 /* Pods-SparksFoundationBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparksFoundationBank.release.xcconfig"; path = "Target Support Files/Pods-SparksFoundationBank/Pods-SparksFoundationBank.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +53,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9798C9D180DEAE60419CC001 /* Pods_SparksFoundationBank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00DCF58E78E96EDFAC1C7152 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F3BE6B3FF1DAD29D93BC44C /* Pods_SparksFoundationBank.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4151FF4A25B17B1900B1334D = {
 			isa = PBXGroup;
 			children = (
 				4151FF5525B17B1900B1334D /* SparksFoundationBank */,
 				4151FF5425B17B1900B1334D /* Products */,
+				663999E186EB0489AEE8E954 /* Pods */,
+				00DCF58E78E96EDFAC1C7152 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +89,12 @@
 		4151FF5525B17B1900B1334D /* SparksFoundationBank */ = {
 			isa = PBXGroup;
 			children = (
+				418B9B3325B61CAE00BAFBF2 /* Bank.sqlite3 */,
 				4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */,
 				4151FF5825B17B1900B1334D /* ContentView.swift */,
+				41695D0625B341C200F4AA59 /* customersModel.swift */,
+				418B9B2F25B6071900BAFBF2 /* transactionsModel.swift */,
+				41695D0925B344B300F4AA59 /* DB_Manager.swift */,
 				4151FF7725B2133300B1334D /* SendMoney.swift */,
 				4151FF7A25B21AE600B1334D /* AddMoney.swift */,
 				4151FF6A25B1E4A200B1334D /* Transactions.swift */,
@@ -90,6 +117,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		663999E186EB0489AEE8E954 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A5D3CCAB518AE32145E700D /* Pods-SparksFoundationBank.debug.xcconfig */,
+				E24585078A099A149C5A1616 /* Pods-SparksFoundationBank.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -97,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4151FF6225B17B1D00B1334D /* Build configuration list for PBXNativeTarget "SparksFoundationBank" */;
 			buildPhases = (
+				A9BB68C0843DAEBB94D6450E /* [CP] Check Pods Manifest.lock */,
 				4151FF4F25B17B1900B1334D /* Sources */,
 				4151FF5025B17B1900B1334D /* Frameworks */,
 				4151FF5125B17B1900B1334D /* Resources */,
+				4AAEC47BDF4648FCEB17AD1D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,19 +186,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				4151FF5E25B17B1D00B1334D /* Preview Assets.xcassets in Resources */,
+				418B9B3425B61CAE00BAFBF2 /* Bank.sqlite3 in Resources */,
 				4151FF5B25B17B1D00B1334D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AAEC47BDF4648FCEB17AD1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SparksFoundationBank/Pods-SparksFoundationBank-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SparksFoundationBank/Pods-SparksFoundationBank-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SparksFoundationBank/Pods-SparksFoundationBank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9BB68C0843DAEBB94D6450E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SparksFoundationBank-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4151FF4F25B17B1900B1334D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				418B9B3025B6071A00BAFBF2 /* transactionsModel.swift in Sources */,
 				4151FF5925B17B1900B1334D /* ContentView.swift in Sources */,
+				41695D0725B341C200F4AA59 /* customersModel.swift in Sources */,
 				4151FF7125B1FD6700B1334D /* Customers.swift in Sources */,
+				41695D0A25B344B300F4AA59 /* DB_Manager.swift in Sources */,
 				4151FF5725B17B1900B1334D /* SparksFoundationBankApp.swift in Sources */,
 				4151FF6E25B1EDB200B1334D /* TransactionCells.swift in Sources */,
 				4151FF7825B2133300B1334D /* SendMoney.swift in Sources */,
@@ -292,6 +376,7 @@
 		};
 		4151FF6325B17B1D00B1334D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A5D3CCAB518AE32145E700D /* Pods-SparksFoundationBank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +399,7 @@
 		};
 		4151FF6425B17B1D00B1334D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24585078A099A149C5A1616 /* Pods-SparksFoundationBank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

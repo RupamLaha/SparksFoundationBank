@@ -12,6 +12,7 @@ struct TransactionCells: View {
     var date: String
     var name: String
     var amount: String
+    var mode: String
     
     var body: some View {
         
@@ -24,15 +25,28 @@ struct TransactionCells: View {
             }
             
             HStack{
-                Text("To : " + name)
-                    .font(.system(size: 18))
+                if(mode == "credit"){
+                    Text("From : " + name)
+                        .font(.system(size: 18))
+                }else{
+                    Text("To : " + name)
+                        .font(.system(size: 18))
+                }
                 
                 Spacer()
                 
-                Text("+ $ " + amount)
-                    .bold()
-                    .font(.system(size: 18))
-                    .foregroundColor(.red)
+                if(mode == "credit"){
+                    Text("+ $ " + amount)
+                        .bold()
+                        .font(.system(size: 18))
+                        .foregroundColor(.green)
+                }else{
+                    Text("- $ " + amount)
+                        .bold()
+                        .font(.system(size: 18))
+                        .foregroundColor(.red)
+
+                }
                 
             }.padding(.top, 1)
         }
@@ -42,6 +56,6 @@ struct TransactionCells: View {
 
 struct TransactionCells_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionCells(date: "20.20.2021", name: "Rupam", amount: "1000.00")
+        TransactionCells(date: "20.20.2021", name: "Rupam", amount: "1000.00", mode: "credit")
     }
 }

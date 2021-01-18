@@ -9,8 +9,15 @@ import SwiftUI
 
 struct SendMoney: View {
     
+    @State var customersData:[customersModel] = DB_Manager().getUsers()
     @State var account: String = ""
     @State var amount: String = ""
+    @State private var showingAlert = false
+    @State private var showingInsufficientAlert = false
+    
+    
+    // to go back to previous view
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -18,7 +25,7 @@ struct SendMoney: View {
             
             VStack{
                 
-                TextField("Enter account no. / email", text: $account)
+                TextField("Enter account no.", text: $account)
                     .frame(height: 55)
                     .padding(.leading)
                     .padding(.trailing)
@@ -36,7 +43,27 @@ struct SendMoney: View {
                 
             }.padding(.top, 50)
             
-            Button(action: {}, label: {
+            Button(action: {
+                
+                if (amount == "" || account == ""){
+                    
+                    self.showingAlert = true
+                    
+                }else{
+                    
+                    if(customersData[0].balance < Int64(amount)!){
+                        self.showingInsufficientAlert = true
+                    }else{
+                        //total balance to update
+                        DB_Manager().sendMoney(accountNo: Int64(account)!, moneyValue: Int64(amount)!)
+                        
+                        // go back to home page
+                        self.mode.wrappedValue.dismiss()
+                    }
+                }
+                
+                
+            }, label: {
                 Text("Send Money")
                     .bold()
                     .font(.system(size: 25))
@@ -45,6 +72,12 @@ struct SendMoney: View {
                     .background(Color.blue)
                     .cornerRadius(30)
             }).padding(.top, 20)
+            .alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("Opps!"), message: Text("Enter valid value."), dismissButton: .cancel())
+            })
+            .alert(isPresented: $showingInsufficientAlert, content: {
+                Alert(title: Text("Opps!"), message: Text("Insufficient Balance"), dismissButton: .cancel())
+            })
             
             Spacer()
         }

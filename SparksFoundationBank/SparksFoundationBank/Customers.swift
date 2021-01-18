@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct Customers: View {
+    
+    @State var customersData:[customersModel] = []
+    
     var body: some View {
         
-        List() {
-           
-            CustomersCells(name: "Prabal Shaw", email: "prabalshaw@gmail.com", acc: "123456789", money: "1000.00")
+        List(self.customersData) { (data) in
             
-            CustomersCells(name: "Sudipta Saha", email: "sudiptasaha@gmail.com", acc: "09876532", money: "2000.00")
+            CustomersCells(name: data.name, email: data.email, acc: data.acc_no, money: data.balance )
             
         }.navigationBarTitle("All Customers", displayMode: .inline)
+        .onAppear(perform: {
+            self.customersData = DB_Manager().getUsers()
+        })
+        
     }
 }
 

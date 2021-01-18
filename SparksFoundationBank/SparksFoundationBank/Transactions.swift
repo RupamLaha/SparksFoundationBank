@@ -9,21 +9,22 @@ import SwiftUI
 
 struct Transactions: View {
     
-//    var transaction = ["Rupam", "Prabal"]
-    
-//    ["30.30.2120", "Badger", "$ 1000.00"],["12.02.2020", "Prabal", "$ 2000.00"],["01.30.2120", "Rupam", "$ 100.00"]
+    @State var allTransactions:[transactionsModel] = []
     
     var body: some View {
             
-            List() {
+            List(allTransactions) { (transation) in
                
-                TransactionCells(date: "20.12.2021", name: "Rupam", amount: "1000")
+                TransactionCells(date: transation.tarik, name: transation.beneficiary, amount: String(transation.amount), mode: transation.mode)
                     .padding(.top, 5)
                 
-                TransactionCells(date: "20.12.2021", name: "Rupam", amount: "1000")
-                    .padding(.top, 5)
+//                TransactionCells(date: "20.12.2021", name: "Rupam", amount: "1000")
+//                    .padding(.top, 5)
                 
             }.navigationBarTitle("Transactions", displayMode: .inline)
+            .onAppear(perform: {
+                self.allTransactions = DB_Manager().getTransactions()
+            })
     }
 }
 

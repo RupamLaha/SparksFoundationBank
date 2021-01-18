@@ -9,7 +9,13 @@ import SwiftUI
 
 struct AddMoney: View {
     
+    
+    @State var customersData:[customersModel] = DB_Manager().getUsers()
     @State var amount: String = ""
+    @State private var showingAlert = false
+    
+    // to go back to previous view
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -27,7 +33,24 @@ struct AddMoney: View {
                 
             }.padding(.top, 50)
             
-            Button(action: {}, label: {
+            Button(action: {
+                
+                if (amount == ""){
+                    
+                    self.showingAlert = true
+                    
+                }else{
+                    //get the available balance
+//                    let availableBalance: Int64 = customersData[0].balance + Int64(amount)!
+                    
+                    //total balance to update
+                    DB_Manager().addMoney(moneyValue: Int64(amount)!)
+                    
+                    // go back to home page
+                    self.mode.wrappedValue.dismiss()
+                }
+                
+            }, label: {
                 Text("Add Money")
                     .bold()
                     .font(.system(size: 25))
@@ -36,6 +59,9 @@ struct AddMoney: View {
                     .background(Color.blue)
                     .cornerRadius(30)
             }).padding(.top, 20)
+            .alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("Opps!"), message: Text("Add amount."), dismissButton: .cancel())
+            })
             
             Spacer()
         }

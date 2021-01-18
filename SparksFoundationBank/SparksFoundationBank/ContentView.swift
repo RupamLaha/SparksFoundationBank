@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var customersData:[customersModel] = DB_Manager().getUsers()
     @State private var sendMoney = false
     @State private var addMoney = false
+    @State private var showingAlert = false
+    @State var currentBalance:Int64 = 0
+    @State var accountNo:Int64 = 0
+    
     
     var body: some View {
         
@@ -25,14 +30,15 @@ struct ContentView: View {
                         .navigationBarHidden(true)
                     //                        .overlay(Circle().stroke(Color.red, lineWidth: 2))
                     VStack{
+                        
                         HStack{
-                            Text("Rupam Laha")
+                            Text(customersData[0].name)
                                 .bold()
                                 .font(.system(size: 14))
                             Spacer()
                         }
                         HStack{
-                            Text("rupamlaha@gmail.com")
+                            Text(customersData[0].email)
                                 .font(.system(size: 13))
                                 .fontWeight(.light)
                                 .foregroundColor(Color.gray)
@@ -41,54 +47,77 @@ struct ContentView: View {
                     }
                 }
                 
-                ZStack{
+                Button(action: {
+                    self.showingAlert = true
                     
-                    Rectangle()
-                        .frame(width: 340, height: 106, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(15)
-                        //                    .foregroundColor(Color(UIColor(red: 0, green: 133, blue: 255, alpha: 1.0)))
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    let customersData:[customersModel] = DB_Manager().getUsers()
+                    self.currentBalance = customersData[0].balance
+                    self.accountNo = customersData[0].acc_no
                     
-                    VStack{
-                        HStack{
-                            Text("Account No.")
-                                .font(.system(size: 12))
-                                .padding(.leading, 35)
-                                .foregroundColor(.black)
-                            //                            .padding(.top, -5)
-                            Spacer()
-                        }
-                        
-                        HStack{
-                            Text("14004001234")
-                                .bold()
-                                .font(.system(size: 14))
-                                .padding(.leading, 35)
-                                .padding(.top, -5)
-                                .foregroundColor(.white)
-                            Spacer()
-                        }
-                        
-                        HStack{
-                            Text("Remaining Balance")
-                                .font(.system(size: 12))
-                                .padding(.leading, 35)
-                                .padding(.top, -5)
-                                .foregroundColor(.black)
-                            Spacer()
-                        }
-                        
-                        HStack{
-                            Text("$ 123,456,789.00")
-                                .bold()
-                                .font(.system(size: 18))
-                                .padding(.leading, 35)
-                                .padding(.top, -5)
-                                .foregroundColor(.white)
-                            Spacer()
-                        }
-                    }
-                }
+                }, label: {
+                    Text("View Balance")
+                        .bold()
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .frame(width: 340, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                })
+                .alert(isPresented: $showingAlert, content: {
+                    
+                    Alert(title: Text("$ " + String(currentBalance)), message: Text("Current Balance \n Account No. - " + String(accountNo)), dismissButton: .cancel())
+                })
+                
+                //                ZStack{
+                //
+                //                    Rectangle()
+                //                        .frame(width: 340, height: 106, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                //                        .cornerRadius(15)
+                //                        //                    .foregroundColor(Color(UIColor(red: 0, green: 133, blue: 255, alpha: 1.0)))
+                //                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                //
+                //                    VStack{
+                //                        HStack{
+                //                            Text("Account No.")
+                //                                .font(.system(size: 12))
+                //                                .padding(.leading, 35)
+                //                                .foregroundColor(.black)
+                //                            //                            .padding(.top, -5)
+                //                            Spacer()
+                //                        }
+                //
+                //                        HStack{
+                //
+                //                            Text(String(customersData[0].acc_no))
+                //                                .bold()
+                //                                .font(.system(size: 14))
+                //                                .padding(.leading, 35)
+                //                                .padding(.top, -5)
+                //                                .foregroundColor(.white)
+                //                            Spacer()
+                //                        }
+                //
+                //                        HStack{
+                //                            Text("Remaining Balance")
+                //                                .font(.system(size: 12))
+                //                                .padding(.leading, 35)
+                //                                .padding(.top, -5)
+                //                                .foregroundColor(.black)
+                //                            Spacer()
+                //                        }
+                //
+                //                        HStack{
+                //
+                //                            Text("$ " + String(Double(customersData[0].balance)) )
+                //                                .bold()
+                //                                .font(.system(size: 18))
+                //                                .padding(.leading, 35)
+                //                                .padding(.top, -5)
+                //                                .foregroundColor(.white)
+                //                            Spacer()
+                //                        }
+                //                    }
+                //                }
                 
                 VStack{
                     HStack{
@@ -110,7 +139,7 @@ struct ContentView: View {
                         }).sheet(isPresented: $sendMoney, content: {
                             SendMoney()
                         })
-                    
+                        
                     }.padding(.bottom, 30)
                     
                     HStack{
