@@ -49,7 +49,7 @@ class DB_Manager{
 //
 //            print(path)
             
-            let path1: String = "/Users/rupamlaha/Desktop/SparksFoundationBank/SparksFoundationBank/SparksFoundationBank"
+            let path1: String = "/Users/rupamlaha/Desktop/SparksFoundationBank/SparksFoundationBank/SparksFoundationBank/Model"
             
             //creation database connection
             db = try Connection("\(path1)/Bank.sqlite3")
@@ -134,6 +134,44 @@ class DB_Manager{
         //return array
         return customersData
     }
+    
+    public func getUsersFiltered() -> [customersModel] {
+        
+        //create empty array
+        var customersData: [customersModel] = []
+        
+        //get all users in desending order
+//        Customers = Customers.order(id.desc)
+        
+        //exception handeling
+        do{
+            
+            //loop through all users
+            for customer in try db.prepare(Customers.filter(id != 1)) {
+                
+                //create loop model in each
+                let customers: customersModel = customersModel()
+                
+                    customers.id = customer[id]
+                    customers.acc_no = customer[acc_no]
+                    customers.name = customer[name]
+                    customers.email = customer[email]
+                    customers.balance = customer[balance]
+                    
+                    //append in new array
+                    customersData.append(customers)
+                
+            }
+            
+        }catch{
+            print(error.localizedDescription)
+        }
+        
+        //return array
+        return customersData
+    }
+    
+    
     
     public func getTransactions() -> [transactionsModel]{
         

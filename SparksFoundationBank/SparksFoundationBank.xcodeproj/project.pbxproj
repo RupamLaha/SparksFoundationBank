@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411311DA25B8AC720038553D /* SendMoneyIndividual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411311D925B8AC720038553D /* SendMoneyIndividual.swift */; };
 		4151FF5725B17B1900B1334D /* SparksFoundationBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */; };
 		4151FF5925B17B1900B1334D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151FF5825B17B1900B1334D /* ContentView.swift */; };
 		4151FF5B25B17B1D00B1334D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4151FF5A25B17B1D00B1334D /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2F3BE6B3FF1DAD29D93BC44C /* Pods_SparksFoundationBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SparksFoundationBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		411311D925B8AC720038553D /* SendMoneyIndividual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyIndividual.swift; sourceTree = "<group>"; };
 		4151FF5325B17B1900B1334D /* SparksFoundationBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SparksFoundationBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparksFoundationBankApp.swift; sourceTree = "<group>"; };
 		4151FF5825B17B1900B1334D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		411311DC25B8C3CF0038553D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				418B9B3325B61CAE00BAFBF2 /* Bank.sqlite3 */,
+				41695D0625B341C200F4AA59 /* customersModel.swift */,
+				418B9B2F25B6071900BAFBF2 /* transactionsModel.swift */,
+				41695D0925B344B300F4AA59 /* DB_Manager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		411311DD25B8C3F60038553D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				411311DF25B8C45E0038553D /* Sub Views */,
+				4151FF5825B17B1900B1334D /* ContentView.swift */,
+				4151FF7725B2133300B1334D /* SendMoney.swift */,
+				411311D925B8AC720038553D /* SendMoneyIndividual.swift */,
+				4151FF7A25B21AE600B1334D /* AddMoney.swift */,
+				4151FF6A25B1E4A200B1334D /* Transactions.swift */,
+				4151FF7025B1FD6700B1334D /* Customers.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		411311DF25B8C45E0038553D /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				4151FF6D25B1EDB200B1334D /* TransactionCells.swift */,
+				4151FF7325B1FDB000B1334D /* CustomersCells.swift */,
+				4151FF6625B18FEB00B1334D /* SubTaskViews.swift */,
+			);
+			path = "Sub Views";
+			sourceTree = "<group>";
+		};
 		4151FF4A25B17B1900B1334D = {
 			isa = PBXGroup;
 			children = (
@@ -89,19 +126,9 @@
 		4151FF5525B17B1900B1334D /* SparksFoundationBank */ = {
 			isa = PBXGroup;
 			children = (
-				418B9B3325B61CAE00BAFBF2 /* Bank.sqlite3 */,
 				4151FF5625B17B1900B1334D /* SparksFoundationBankApp.swift */,
-				4151FF5825B17B1900B1334D /* ContentView.swift */,
-				41695D0625B341C200F4AA59 /* customersModel.swift */,
-				418B9B2F25B6071900BAFBF2 /* transactionsModel.swift */,
-				41695D0925B344B300F4AA59 /* DB_Manager.swift */,
-				4151FF7725B2133300B1334D /* SendMoney.swift */,
-				4151FF7A25B21AE600B1334D /* AddMoney.swift */,
-				4151FF6A25B1E4A200B1334D /* Transactions.swift */,
-				4151FF6D25B1EDB200B1334D /* TransactionCells.swift */,
-				4151FF7025B1FD6700B1334D /* Customers.swift */,
-				4151FF7325B1FDB000B1334D /* CustomersCells.swift */,
-				4151FF6625B18FEB00B1334D /* SubTaskViews.swift */,
+				411311DD25B8C3F60038553D /* Views */,
+				411311DC25B8C3CF0038553D /* Model */,
 				4151FF5A25B17B1D00B1334D /* Assets.xcassets */,
 				4151FF5F25B17B1D00B1334D /* Info.plist */,
 				4151FF5C25B17B1D00B1334D /* Preview Content */,
@@ -246,6 +273,7 @@
 				4151FF7125B1FD6700B1334D /* Customers.swift in Sources */,
 				41695D0A25B344B300F4AA59 /* DB_Manager.swift in Sources */,
 				4151FF5725B17B1900B1334D /* SparksFoundationBankApp.swift in Sources */,
+				411311DA25B8AC720038553D /* SendMoneyIndividual.swift in Sources */,
 				4151FF6E25B1EDB200B1334D /* TransactionCells.swift in Sources */,
 				4151FF7825B2133300B1334D /* SendMoney.swift in Sources */,
 				4151FF7425B1FDB000B1334D /* CustomersCells.swift in Sources */,
@@ -393,7 +421,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rupamlaha.SparksFoundationBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -416,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rupamlaha.SparksFoundationBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

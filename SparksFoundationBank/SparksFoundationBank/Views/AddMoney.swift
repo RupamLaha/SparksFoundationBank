@@ -13,6 +13,7 @@ struct AddMoney: View {
     @State var customersData:[customersModel] = DB_Manager().getUsers()
     @State var amount: String = ""
     @State private var showingAlert = false
+    @State private var showPopUp = false
     
     // to go back to previous view
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -46,8 +47,12 @@ struct AddMoney: View {
                     //total balance to update
                     DB_Manager().addMoney(moneyValue: Int64(amount)!)
                     
+                    //successful alert
+                    self.showPopUp = true
+                    amount = ""
+                    
                     // go back to home page
-                    self.mode.wrappedValue.dismiss()
+//                    self.mode.wrappedValue.dismiss()
                 }
                 
             }, label: {
@@ -62,6 +67,25 @@ struct AddMoney: View {
             .alert(isPresented: $showingAlert, content: {
                 Alert(title: Text("Opps!"), message: Text("Add amount."), dismissButton: .cancel())
             })
+            .alert(isPresented: $showPopUp, content: {
+                Alert(title: Text("Hurry!"), message: Text("Transaction Successful"), dismissButton: .cancel())
+            })
+            
+            Button(action: {
+                
+                // go back to home page
+                self.mode.wrappedValue.dismiss()
+                
+            }, label: {
+                Text("Cancel")
+                    .bold()
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.gray)
+                    .cornerRadius(30)
+                
+            }).padding(.top, 5)
             
             Spacer()
         }

@@ -22,9 +22,9 @@ struct CustomersCells: View {
                     .bold()
                     .font(.system(size: 18))
                 Text(email)
-                    .font(.system(size: 12))
+                    .font(.system(size: 15))
                 Text("Acc No. " + String(acc))
-                    .font(.system(size: 11))
+                    .font(.system(size: 14))
                     .foregroundColor(.gray)
             }
             

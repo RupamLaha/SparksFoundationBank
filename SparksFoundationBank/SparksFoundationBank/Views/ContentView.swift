@@ -169,7 +169,7 @@ struct ContentView: View {
                 
                 Spacer()
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

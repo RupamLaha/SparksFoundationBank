@@ -14,13 +14,14 @@ struct SendMoney: View {
     @State var amount: String = ""
     @State private var showingAlert = false
     @State private var showingInsufficientAlert = false
+    @State private var showPopUp = false
     
     
     // to go back to previous view
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
-        
+            
         VStack{
             
             VStack{
@@ -57,12 +58,16 @@ struct SendMoney: View {
                         //total balance to update
                         DB_Manager().sendMoney(accountNo: Int64(account)!, moneyValue: Int64(amount)!)
                         
+                        //successful alert
+                        self.showPopUp = true
+                        
+                        account = ""
+                        amount = ""
+                        
                         // go back to home page
-                        self.mode.wrappedValue.dismiss()
+//                        self.mode.wrappedValue.dismiss()
                     }
                 }
-                
-                
             }, label: {
                 Text("Send Money")
                     .bold()
@@ -78,6 +83,26 @@ struct SendMoney: View {
             .alert(isPresented: $showingInsufficientAlert, content: {
                 Alert(title: Text("Opps!"), message: Text("Insufficient Balance"), dismissButton: .cancel())
             })
+            .alert(isPresented: $showPopUp, content: {
+                Alert(title: Text("Hurry!"), message: Text("Transaction Successful"), dismissButton: .cancel())
+            })
+            
+            
+            Button(action: {
+                
+                // go back to home page
+                self.mode.wrappedValue.dismiss()
+                
+            }, label: {
+                Text("Cancel")
+                    .bold()
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.gray)
+                    .cornerRadius(30)
+                
+            }).padding(.top, 5)
             
             Spacer()
         }
